@@ -1,26 +1,41 @@
-# Gosma_VSS_CI_Data
+# Supplemental Data for "Recommended DSMC Collision Model Parameters for Planetary Entry and Related Applications"
 
-Supplemental Data for "Recommended DSMC Collision Model Parameters for Planetary Entry and Related
-Applications" by Gosma, Swaminathan Gopalan, Subramaniam, and Stephani.
+By Gosma, Swaminathan Gopalan, Subramaniam, and Stephani
 
-At the time of manuscript review, the repo currently contains the following:
+## Repository Contents
 
-\begin{description}
-\item [FULL\_VSS\_DATABASE.vss] Full Collision-Specific VSS Database for atmospheric entry modeling applications containing 240 total species, fitted from 1000-20000 K.
-\item [Neutral\_Low\_T.vss] Collision-Specific VSS Database for non-entry modeling applications containing 215 neutral species, fitted from 300-4000 K.
-\item [pirani.tran] Full list of neutral species polarizability and effective electron values used in the computation of the phenomenological and Langevin potentials.
-\item [Pirani\_Poly\_Output.tran] Phenomenological and Langevin Potential derived collision integral data for all possible neutral-neutral and neutral-ion combinations, fitted to Gupta Polynomial form from 300-20000 K.
-\end{description}
+At the time of manuscript review, the repository contains the following files:
 
-Both VSS databases have been tested and are compatible with the latest public release of the SPARTA DSMC code\cite{SPARTA}. Data sourcing and error statistics (when applicable) for each individual collision pair are provided.
+- **FULL_VSS_DATABASE.vss** - Full Collision-Specific VSS Database for atmospheric entry modeling applications containing 240 total species, fitted from 1000-20000 K.
+- **Neutral_Low_T.vss** - Collision-Specific VSS Database for non-entry modeling applications containing 215 neutral species, fitted from 300-4000 K.
+- **pirani.tran** - Full list of neutral species polarizability and effective electron values used in the computation of the phenomenological and Langevin potentials.
+- **Pirani_Poly_Output.tran** - Phenomenological and Langevin Potential derived collision integral data for all possible neutral-neutral and neutral-ion combinations, fitted to Gupta Polynomial form from 300-20000 K.
 
-The polarizability and effective electron values are provided roughly in the format required by the Mutation++ Library\cite{Scoggins2020}. The source for each species is discussed in Sec. 2D. While not directly used in this work, the code can be readily used to compute the raw collision integral data used in this work, utilizing the same potential models. This may be useful for verification or additional transport-related work. The latter might include computation of additional collision integral terms required for higher-order approximations of mixture transport values.
+## Compatibility and Usage
 
-Using the same Nelder-Mead optimization scheme described in this work, "raw" collision integral data for all possible neutral-neutral and neutral-ion interactions were computed via the phenomenological and Langevin potentials respectively and fitted to Gupta Polynomial Form\cite{gupta_review_1990}:
+Both VSS databases have been tested and are compatible with the latest public release of the SPARTA DSMC code [[1]](#references). Data sourcing and error statistics (when applicable) for each individual collision pair are provided.
 
-\begin{equation}
-(\pi\overline{\Omega}^{(1,1)}_{i,j}, \pi\overline{\Omega}^{(2,2)}_{i,j}, B^{*}_{i,j}) = 
-D*T^{[A(ln(T))^2 + B(ln(T)) + C]}
-\end{equation}
+The polarizability and effective electron values are provided roughly in the format required by the Mutation++ Library [[2]](#references). The source for each species is discussed in Section 2D of the manuscript.
 
-\noindent The resulting polynomial coefficients seem to be in good agreement, with an average error of less than 1\% and a maximum error of less than 4\% observed overall collision pairs compared to the originally computed collision integral data. While not directly used in this paper, these polynomials are provided for their potential use in CFD or CFD-DSMC hybrid applications.
+While not directly used in this work, the provided code can be utilized to compute raw collision integral data using the same potential models. This can be useful for verification or additional transport-related research, such as:
+
+- Computation of additional collision integral terms required for higher-order approximations of mixture transport values.
+- Derivation of transport properties for CFD or CFD-DSMC hybrid applications.
+
+## Computation and Polynomial Fitting
+
+Using the Nelder-Mead optimization scheme described in the manuscript, "raw" collision integral data for all possible neutral-neutral and neutral-ion interactions were computed via the phenomenological and Langevin potentials, respectively, and fitted to the Gupta Polynomial Form [[3]](#references):
+
+\[ (\pi\overline{\Omega}^{(1,1)}_{i,j}, \pi\overline{\Omega}^{(2,2)}_{i,j}, B^{*}_{i,j}) = D \cdot T^{[A(\ln(T))^2 + B(\ln(T)) + C]} \]
+
+The resulting polynomial coefficients show good agreement, with an average error of less than 1% and a maximum error of less than 4% compared to the originally computed collision integral data.
+
+## References
+
+1. SPARTA DSMC Code - [https://sparta.sandia.gov](https://sparta.sandia.gov)
+2. Scoggins, J. et al., Mutation++: An Open-Source Library for Chemical Kinetics and Transport Properties.
+3. Gupta, R. N. et al., "Review of Reaction Rates and Thermodynamic and Transport Properties for the NASA Lewis Chemical Equilibrium Program," NASA TM-4513, 1990.
+
+---
+For further details, please refer to the full manuscript.
+
