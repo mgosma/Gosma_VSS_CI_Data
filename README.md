@@ -1,4 +1,4 @@
-# Supplemental Data for "Recommended DSMC Collision Model Parameters for Planetary Entry and Related Applications"
+# Supplemental Data for "Recommended Direct Simulation Monte Carlo Collision Model Parameters for Planetary Entry and Related Applications"
 
 By Gosma, Swaminathan Gopalan, Subramaniam, and Stephani
 
