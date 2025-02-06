@@ -26,7 +26,9 @@ While not directly used in this work, the provided code can be utilized to compu
 
 Using the Nelder-Mead optimization scheme described in the manuscript, "raw" collision integral data for all possible neutral-neutral and neutral-ion interactions were computed via the phenomenological and Langevin potentials, respectively, and fitted to the Gupta Polynomial Form [[3]](#references):
 
-\[ (\pi\overline{\Omega}^{(1,1)}_{i,j}, \pi\overline{\Omega}^{(2,2)}_{i,j}, B^{*}_{i,j}) = D \cdot T^{[A(\ln(T))^2 + B(\ln(T)) + C]} \]
+$$
+(\pi\overline{\Omega}^{(1,1)}_{i,j}, \pi\overline{\Omega}^{(2,2)}_{i,j}, B^{*}_{i,j}) = D \cdot T^{[A(\ln(T))^2 + B(\ln(T)) + C]}
+$$
 
 The resulting polynomial coefficients show good agreement, with an average error of less than 1% and a maximum error of less than 4% compared to the originally computed collision integral data.
 
